@@ -1,6 +1,5 @@
-import { Background } from "../components/background";
-import { Features } from "../components/features";
-import { Hero } from "../components/hero";
+import { Background } from "@/components/background";
+import { Hero, Features, Benefits, Tools } from "@/components/sections";
 
 export default function Home() {
   return (
@@ -8,6 +7,8 @@ export default function Home() {
       <main className="flex-1">
         <Background />
         <Hero />
+        <Benefits />
+        <Tools />
         <Features />
       </main>
     </div>

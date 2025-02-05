@@ -65,7 +65,7 @@ export function Navbar() {
               className="pl-10 bg-muted/50 border-muted-foreground/20 hover:border-primary/30 focus:border-primary transition-colors"
             />
             <kbd className="pointer-events-none absolute right-3 top-[7px] hidden h-5 select-none items-center gap-1 rounded border border-muted-foreground/20 bg-muted px-1.5 font-mono text-xs text-muted-foreground opacity-100 group-hover:opacity-70 sm:flex">
-              ⌘K
+              ⌘ K
             </kbd>
             <svg
               className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground/70"
