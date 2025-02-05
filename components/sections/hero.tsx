@@ -1,21 +1,96 @@
+"use client";
+
 import Link from "next/link";
 import { CustomButton } from "@/components/custom/CustomButton";
+import { motion } from "framer-motion";
+
+const container = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      stiffness: 100,
+      damping: 10,
+    },
+  },
+};
 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background" />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5 }}
+        className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-background"
+      />
 
       {/* Gradient Orbs */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-primary/30 to-primary/5 rounded-full blur-3xl -z-10 animate-pulse" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-primary/20 to-primary/5 rounded-full blur-3xl -z-10 animate-pulse delay-700" />
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-primary/30 to-primary/5 rounded-full blur-3xl -z-10"
+      >
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+          className="w-full h-full"
+        />
+      </motion.div>
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1.5, delay: 0.3, ease: "easeOut" }}
+        className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-gradient-to-tr from-primary/20 to-primary/5 rounded-full blur-3xl -z-10"
+      >
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+          }}
+          transition={{
+            duration: 4,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 2,
+          }}
+          className="w-full h-full"
+        />
+      </motion.div>
 
       {/* Content */}
       <div className="container relative py-20">
-        <div className="flex flex-col items-center justify-center gap-8">
+        <motion.div
+          variants={container}
+          initial="hidden"
+          animate="show"
+          className="flex flex-col items-center justify-center gap-8"
+        >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 via-primary/20 to-primary/10 backdrop-blur-sm border border-primary/10 animate-in fade-in slide-in-from-top-4 duration-1000">
+          <motion.div
+            variants={item}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-primary/10 via-primary/20 to-primary/10 backdrop-blur-sm border border-primary/10"
+          >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
@@ -23,25 +98,46 @@ export function Hero() {
             <p className="text-sm font-medium bg-clip-text text-transparent bg-gradient-to-r from-primary to-primary/70">
               Elevate Your React Development
             </p>
-          </div>
+          </motion.div>
 
           {/* Title */}
-          <div className="space-y-4 text-center max-w-3xl animate-in fade-in slide-in-from-bottom-4 duration-1000">
+          <motion.div
+            variants={item}
+            className="space-y-4 text-center max-w-3xl"
+          >
             <h1 className="text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/90 to-foreground/50">
-              Craft Stunning UIs
-              <span className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/90 to-primary/70">
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+                className="block"
+              >
+                Craft Stunning UIs
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.7 }}
+                className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/90 to-primary/70"
+              >
                 Without the Complexity
-              </span>
+              </motion.span>
             </h1>
-            <p className="mx-auto max-w-2xl text-lg sm:text-xl text-muted-foreground">
+            <motion.p
+              variants={item}
+              className="mx-auto max-w-2xl text-lg sm:text-xl text-muted-foreground"
+            >
               Premium React components that combine the power of shadcn/ui with
               enhanced features. Ship faster with ready-to-use, customizable
               components that just work.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
           {/* Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <motion.div
+            variants={item}
+            className="flex flex-wrap items-center justify-center gap-4"
+          >
             <Link href="/components">
               <CustomButton size="lg" className="relative group px-8 h-12">
                 <span className="relative z-10">Explore Components</span>
@@ -60,27 +156,36 @@ export function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity rounded-md" />
               </CustomButton>
             </Link>
-          </div>
+          </motion.div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8 animate-in fade-in slide-in-from-bottom-12 duration-1000">
+          <motion.div
+            variants={item}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 pt-8"
+          >
             {[
               { label: "Ready Components", value: "10+" },
               { label: "Style Variants", value: "50+" },
               { label: "Active Projects", value: "1k+" },
               { label: "Community Stars", value: "100+" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center">
+            ].map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1 + index * 0.1 }}
+                className="text-center"
+              >
                 <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-foreground to-foreground/70">
                   {stat.value}
                 </div>
                 <div className="text-sm text-muted-foreground">
                   {stat.label}
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );
