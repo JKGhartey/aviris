@@ -82,8 +82,8 @@ export function Tools() {
           </div>
         </div>
 
-        <div className="relative w-full">
-          <div className="flex gap-6 items-center justify-center flex-nowrap overflow-x-auto pb-4 scrollbar-none -mx-4 px-4">
+        <div className="relative">
+          <div className="flex gap-6 items-center justify-center flex-wrap">
             {tools.map((tool, i) => {
               const Icon = tool.icon;
               return (
@@ -95,7 +95,6 @@ export function Tools() {
                   viewport={{ once: true }}
                   onHoverStart={() => setHoveredTool(tool.name)}
                   onHoverEnd={() => setHoveredTool(null)}
-                  className="flex-shrink-0"
                 >
                   <motion.div
                     whileHover={{ y: -4, scale: 1.05 }}

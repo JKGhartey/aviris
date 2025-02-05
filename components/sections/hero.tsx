@@ -28,6 +28,30 @@ const item = {
   },
 };
 
+const titleContainer = {
+  hidden: { opacity: 0 },
+  show: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.3,
+    },
+  },
+};
+
+const titleWord = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      damping: 15,
+      stiffness: 100,
+    },
+  },
+};
+
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -102,26 +126,26 @@ export function Hero() {
 
           {/* Title */}
           <motion.div
-            variants={item}
+            variants={titleContainer}
             className="space-y-4 text-center max-w-3xl"
           >
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/90 to-foreground/50">
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                className="block"
-              >
-                Craft Stunning UIs
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.7 }}
-                className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/90 to-primary/70"
-              >
-                Without the Complexity
-              </motion.span>
+            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl">
+              <div className="overflow-hidden">
+                <motion.span
+                  variants={titleWord}
+                  className="block bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/90 to-foreground/50"
+                >
+                  Craft Stunning UIs
+                </motion.span>
+              </div>
+              <div className="overflow-hidden">
+                <motion.span
+                  variants={titleWord}
+                  className="block mt-2 bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary/90 to-primary/70"
+                >
+                  Without the Complexity
+                </motion.span>
+              </div>
             </h1>
             <motion.p
               variants={item}
