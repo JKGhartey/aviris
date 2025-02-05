@@ -1,6 +1,9 @@
-export default function ComponentsIntroduction() {
+import Link from "next/link";
+import { CustomButton } from "@/components/custom/CustomButton";
+
+export default function ComponentsPage() {
   return (
-    <div className="space-y-6">
+    <div className="container py-10 space-y-6">
       <div>
         <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
           Components
@@ -28,7 +31,7 @@ export default function ComponentsIntroduction() {
           Available Components
         </h2>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <a
+          <Link
             href="/components/button"
             className="group relative rounded-lg border p-6 hover:border-foreground"
           >
@@ -36,7 +39,7 @@ export default function ComponentsIntroduction() {
             <p className="text-sm text-muted-foreground">
               Clickable button with multiple styles and states.
             </p>
-          </a>
+          </Link>
           {/* Add more component cards here as we create them */}
         </div>
       </div>
@@ -53,6 +56,15 @@ export default function ComponentsIntroduction() {
           <li>Tailwind CSS styling</li>
           <li>Fully customizable</li>
         </ul>
+      </div>
+
+      <div className="flex gap-4">
+        <Link href="/docs/installation">
+          <CustomButton>Get Started</CustomButton>
+        </Link>
+        <Link href="https://github.com/yourusername/aviris" target="_blank">
+          <CustomButton variant="outline">GitHub</CustomButton>
+        </Link>
       </div>
     </div>
   );
