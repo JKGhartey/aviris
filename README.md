@@ -1,36 +1,127 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Aviris Components
 
-## Getting Started
+A collection of customized shadcn/ui components with additional features and customizations.
 
-First, run the development server:
+## Installation
+
+1. Install the package:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Using yarn
+yarn add aviris-components
+
+# Using npm
+npm install aviris-components
+
+# Using pnpm
+pnpm add aviris-components
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install the CLI globally:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+# Using yarn
+yarn global add aviris-components
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# Using npm
+npm install -g aviris-components
 
-## Learn More
+# Using pnpm
+pnpm add -g aviris-components
+```
 
-To learn more about Next.js, take a look at the following resources:
+3. Add the required Tailwind CSS configuration:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```js
+// tailwind.config.js or tailwind.config.ts
+import animate from "tailwindcss-animate";
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+export default {
+  darkMode: ["class"],
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/aviris-components/dist/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+      },
+    },
+  },
+  plugins: [animate],
+};
+```
 
-## Deploy on Vercel
+## Usage
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Add components using the CLI:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Using yarn
+yarn aviris add custom-button
+
+# Using npm
+npx aviris add custom-button
+
+# Using pnpm
+pnpm aviris add custom-button
+```
+
+2. Import and use components in your code:
+
+```tsx
+import { CustomButton } from "aviris-components";
+
+export default function MyComponent() {
+  return <CustomButton variant="default">Click me</CustomButton>;
+}
+```
+
+## Available Components
+
+- **CustomButton**: A customized button component with loading states and gradient support
+  - Variants: default, secondary, destructive, outline, ghost, link
+  - Sizes: sm, default, lg
+  - States: loading, disabled
+  - Custom styles support
+
+## Documentation
+
+Visit our documentation at [https://yourdomain.com/docs](https://yourdomain.com/docs) for detailed usage instructions and examples.
+
+## Requirements
+
+- React 19 or higher
+- Next.js 15 or higher
+- TailwindCSS 3.4 or higher
+
+## License
+
+MIT © [Your Name]

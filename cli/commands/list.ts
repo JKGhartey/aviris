@@ -1,4 +1,15 @@
-const COMPONENTS = {
+interface Component {
+  name: string;
+  description: string;
+  dependencies: string[];
+  baseComponents: string[];
+}
+
+interface Components {
+  [key: string]: Component;
+}
+
+const COMPONENTS: Components = {
   "custom-button": {
     name: "CustomButton",
     description: "A customized button component based on shadcn/ui Button",
@@ -12,7 +23,7 @@ const COMPONENTS = {
   },
 };
 
-export function listComponents() {
+export function listComponents(): void {
   console.log("\nAvailable components:\n");
 
   Object.entries(COMPONENTS).forEach(([key, component]) => {

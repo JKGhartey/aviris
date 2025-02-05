@@ -1,4 +1,4 @@
-#!/usr/bin/env bun
+#!/usr/bin/env node
 import { program } from "commander";
 import { addComponent } from "../commands/add.js";
 import { listComponents } from "../commands/list.js";
