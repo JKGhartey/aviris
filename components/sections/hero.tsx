@@ -54,7 +54,7 @@ const titleWord = {
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative p-5 min-h-screen flex items-center justify-center overflow-hidden">
       {/* Gradient Background */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -129,7 +129,7 @@ export function Hero() {
             variants={titleContainer}
             className="space-y-4 text-center max-w-3xl"
           >
-            <h1 className="text-4xl font-bold tracking-tight sm:text-6xl md:text-7xl">
+            <h1 className="text-3xl font-bold tracking-tight sm:text-6xl md:text-7xl">
               <div className="overflow-hidden">
                 <motion.span
                   variants={titleWord}

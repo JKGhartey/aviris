@@ -1,5 +1,11 @@
 import { Background } from "@/components/background";
-import { Hero, Features, Benefits, Tools } from "@/components/sections";
+import {
+  Hero,
+  Features,
+  Benefits,
+  Tools,
+  Templates,
+} from "@/components/sections";
 
 export default function Home() {
   return (
@@ -10,6 +16,7 @@ export default function Home() {
         <Benefits />
         <Tools />
         <Features />
+        <Templates />
       </main>
     </div>
   );

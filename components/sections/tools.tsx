@@ -8,6 +8,7 @@ import {
   SiRadixui,
   SiFramer,
   SiFigma,
+  SiShadcnui,
 } from "react-icons/si";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
@@ -22,9 +23,14 @@ const tools = [
     icon: SiNextdotjs,
   },
   {
+    name: "Shadcn UI",
+    icon: SiShadcnui,
+  },
+  {
     name: "Tailwind",
     icon: SiTailwindcss,
   },
+
   {
     name: "Radix UI",
     icon: SiRadixui,
@@ -50,36 +56,34 @@ export function Tools() {
     <section className="container max-w-7xl mx-auto px-4 md:px-6 py-32">
       <div className="grid gap-16">
         <div className="relative text-center">
-          <div className="flex items-center justify-start max-w-[40rem] mx-auto">
-            <h2 className="inline-flex items-center justify-center text-3xl font-bold leading-[1.1] tracking-tighter sm:text-4xl md:text-5xl">
-              <span>Aviris built with</span>{" "}
-              <span className="relative inline-flex items-center ml-3">
-                <AnimatePresence mode="wait">
-                  {!hoveredTool ? (
-                    <motion.span
-                      key="default"
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="inline-flex items-center"
-                    >
-                      modern tools
-                    </motion.span>
-                  ) : (
-                    <motion.span
-                      key={hoveredTool}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      className="inline-flex items-center"
-                    >
-                      {hoveredTool}
-                    </motion.span>
-                  )}
-                </AnimatePresence>
-              </span>
-            </h2>
-          </div>
+          <h2 className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-3xl font-bold leading-[1.1] tracking-tighter sm:text-4xl md:text-5xl">
+            <span className="whitespace-nowrap">Aviris built with</span>
+            <span className="relative flex items-center min-w-[340px] h-[1.2em]">
+              <AnimatePresence mode="wait">
+                {!hoveredTool ? (
+                  <motion.span
+                    key="default"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute inset-0 flex items-center justify-center md:justify-start"
+                  >
+                    modern tools
+                  </motion.span>
+                ) : (
+                  <motion.span
+                    key={hoveredTool}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    className="absolute inset-0 flex items-center justify-center md:justify-start"
+                  >
+                    {hoveredTool}
+                  </motion.span>
+                )}
+              </AnimatePresence>
+            </span>
+          </h2>
         </div>
 
         <div className="relative">

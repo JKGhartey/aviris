@@ -72,16 +72,17 @@ export function Footer() {
               .
             </motion.p>
           </motion.div>
-          <motion.div variants={item} className="flex items-center gap-3">
+          <motion.div variants={item} className="flex items-center gap-6">
             <motion.div
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              className="rounded-lg overflow-hidden"
             >
               <Link
                 href="https://github.com/jkghartey/aviris"
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-lg p-2.5 text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
+                className="flex items-center justify-center w-10 h-10 text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
               >
                 <FaGithub className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
@@ -90,12 +91,13 @@ export function Footer() {
             <motion.div
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              className="rounded-lg overflow-hidden"
             >
               <Link
                 href="https://twitter.com/jkghartey"
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-lg p-2.5 text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
+                className="flex items-center justify-center w-10 h-10 text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
               >
                 <FaXTwitter className="h-5 w-5" />
                 <span className="sr-only">X (Twitter)</span>
@@ -104,12 +106,13 @@ export function Footer() {
             <motion.div
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              className="rounded-lg overflow-hidden"
             >
               <Link
                 href="https://discord.gg/your-invite-code"
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-lg p-2.5 text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
+                className="flex items-center justify-center w-10 h-10 text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
               >
                 <FaDiscord className="h-5 w-5" />
                 <span className="sr-only">Discord</span>

@@ -53,7 +53,7 @@ export function SectionHeader({
     >
       <motion.h2
         variants={titleAnimation}
-        className="text-3xl font-bold leading-[1.1] tracking-tighter sm:text-4xl md:text-5xl bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/90 to-foreground/70"
+        className="text-2xl font-bold leading-[1.1] tracking-tighter md:text-4xl bg-clip-text text-transparent bg-gradient-to-br from-foreground via-foreground/90 to-foreground/70"
       >
         {title}
       </motion.h2>
