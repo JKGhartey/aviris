@@ -75,10 +75,7 @@ async function addComponent(componentName) {
       );
       return;
     }
-    const customComponentsDir = import_path2.default.join(
-      process.cwd(),
-      "components/custom"
-    );
+    const customComponentsDir = import_path2.default.join(process.cwd(), "components/custom");
     await import_fs_extra2.default.ensureDir(customComponentsDir);
     for (const file of component.files) {
       await copyComponent(file, customComponentsDir);

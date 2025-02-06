@@ -51,10 +51,7 @@ async function addComponent(componentName) {
       );
       return;
     }
-    const customComponentsDir = path2.join(
-      process.cwd(),
-      "components/custom"
-    );
+    const customComponentsDir = path2.join(process.cwd(), "components/custom");
     await fs2.ensureDir(customComponentsDir);
     for (const file of component.files) {
       await copyComponent(file, customComponentsDir);
