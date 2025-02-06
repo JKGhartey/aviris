@@ -35,6 +35,11 @@ export const docsConfig = {
           href: "/docs/components/button",
           description: "Interactive button component with variants",
         },
+        {
+          title: "Code",
+          href: "/docs/components/code",
+          description: "Code blocks with copy functionality and tabs",
+        },
       ],
     },
     {
