@@ -22,11 +22,8 @@
     ],
     "paths": {
       "@/*": ["./*"]
-    },
-    "forceConsistentCasingInFileNames": true,
-    "outDir": "dist",
-    "declaration": true
+    }
   },
-  "include": ["src/**/*"],
+  "include": ["**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules", "dist"]
 }
