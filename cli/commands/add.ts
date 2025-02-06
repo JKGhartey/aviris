@@ -25,6 +25,13 @@ const COMPONENTS: Components = {
     ],
     baseComponents: ["Button"],
   },
+  code: {
+    name: "CodeBlock",
+    files: ["CodeBlock.tsx"],
+    dependencies: ["@radix-ui/react-tabs", "lucide-react"],
+    baseComponents: ["Tabs"],
+  },
+  // Add more components here as needed
 };
 
 export async function addComponent(componentName: string): Promise<void> {

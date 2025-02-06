@@ -21,6 +21,13 @@ const COMPONENTS: Components = {
     ],
     baseComponents: ["Button"],
   },
+  code: {
+    name: "CodeBlock",
+    description:
+      "A code block component with copy functionality and tabs support",
+    dependencies: ["@radix-ui/react-tabs", "lucide-react"],
+    baseComponents: ["Tabs"],
+  },
 };
 
 export function listComponents(): void {

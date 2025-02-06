@@ -90,8 +90,8 @@ export function TableOfContents({ items = [] }: TableOfContentsProps) {
 
   return (
     <div className="hidden text-sm xl:block">
-      <div className="sticky top-[4.5rem] pt-10">
-        <ScrollArea className="pb-10">
+      <div className="fixed top-14 -ml-2 h-[calc(100vh-3.5rem)]">
+        <ScrollArea className="py-6 pl-6 pr-4">
           <div className="space-y-2">
             <p className="font-medium">On This Page</p>
             <ul className="m-0 list-none">

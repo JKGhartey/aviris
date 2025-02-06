@@ -1,4 +1,5 @@
 import { CodeBlock } from "@/components/custom/CodeBlock";
+import { InstallationSection } from "@/components/custom/InstallationSection";
 
 const singleExample = `npm install aviris-components
 # or
@@ -35,12 +36,7 @@ export default function CodePage() {
         </p>
       </div>
 
-      <div className="space-y-4">
-        <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight">
-          Installation
-        </h2>
-        <CodeBlock code={singleExample} language="bash" showLanguage />
-      </div>
+      <InstallationSection component="code" />
 
       <div className="space-y-4">
         <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight">
@@ -61,9 +57,9 @@ export default function CodePage() {
           Without Line Numbers
         </h2>
         <CodeBlock
-          code={singleExample}
+          code={usageExample.tsx}
           showLineNumbers={false}
-          language="bash"
+          language="typescript"
           showLanguage
         />
       </div>
