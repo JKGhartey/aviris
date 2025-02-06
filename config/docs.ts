@@ -31,11 +31,6 @@ export const docsConfig = {
       href: "/docs/components",
       items: [
         {
-          title: "Overview",
-          href: "/docs/components",
-          description: "Browse all available components",
-        },
-        {
           title: "Button",
           href: "/docs/components/button",
           description: "Interactive button component with variants",
