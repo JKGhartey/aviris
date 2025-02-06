@@ -4,7 +4,7 @@ import { addComponent } from "../commands/add.js";
 import { listComponents } from "../commands/list.js";
 
 program
-  .version("1.0.0")
+  .version("0.1.0")
   .description("Aviris CLI for installing and managing UI components");
 
 program

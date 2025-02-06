@@ -1,12 +1,10 @@
-interface Component {
-  name: string;
-  description: string;
-  dependencies: string[];
-  baseComponents: string[];
-}
-
 interface Components {
-  [key: string]: Component;
+  [key: string]: {
+    name: string;
+    description: string;
+    dependencies: string[];
+    baseComponents: string[];
+  };
 }
 
 const COMPONENTS: Components = {
@@ -20,13 +18,6 @@ const COMPONENTS: Components = {
       "tailwind-merge",
     ],
     baseComponents: ["Button"],
-  },
-  code: {
-    name: "CodeBlock",
-    description:
-      "A code block component with copy functionality and tabs support",
-    dependencies: ["@radix-ui/react-tabs", "lucide-react"],
-    baseComponents: ["Tabs"],
   },
 };
 

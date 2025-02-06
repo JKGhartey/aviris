@@ -9,13 +9,14 @@ export async function copyComponent(
   fileName: string,
   targetDir: string
 ): Promise<void> {
-  const sourcePath = path.join(__dirname, "../../components/custom", fileName);
+  const sourcePath = path.join(__dirname, "../../templates", fileName);
   const targetPath = path.join(targetDir, fileName);
 
   try {
     await fs.copy(sourcePath, targetPath);
-    console.log(`Copied ${fileName} to ${targetDir}`);
   } catch (error) {
-    throw new Error(`Failed to copy ${fileName}: ${(error as Error).message}`);
+    throw new Error(
+      `Failed to copy component ${fileName}: ${(error as Error).message}`
+    );
   }
 }

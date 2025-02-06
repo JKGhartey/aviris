@@ -10,7 +10,12 @@ interface Component {
 }
 
 interface Components {
-  [key: string]: Component;
+  [key: string]: {
+    name: string;
+    files: string[];
+    dependencies: string[];
+    baseComponents: string[];
+  };
 }
 
 const COMPONENTS: Components = {
@@ -25,13 +30,6 @@ const COMPONENTS: Components = {
     ],
     baseComponents: ["Button"],
   },
-  code: {
-    name: "CodeBlock",
-    files: ["CodeBlock.tsx"],
-    dependencies: ["@radix-ui/react-tabs", "lucide-react"],
-    baseComponents: ["Tabs"],
-  },
-  // Add more components here as needed
 };
 
 export async function addComponent(componentName: string): Promise<void> {
@@ -44,24 +42,20 @@ export async function addComponent(componentName: string): Promise<void> {
       return;
     }
 
-    // Ensure the custom components directory exists
     const customComponentsDir = path.join(process.cwd(), "components/custom");
     await fs.ensureDir(customComponentsDir);
 
-    // Copy the component files
     for (const file of component.files) {
       await copyComponent(file, customComponentsDir);
     }
 
     console.log(`✅ Successfully added ${component.name} component`);
 
-    // Log dependencies that need to be installed
     if (component.dependencies.length > 0) {
       console.log("\nRequired dependencies:");
       console.log(`yarn add ${component.dependencies.join(" ")}`);
     }
 
-    // Log base components that need to be installed
     if (component.baseComponents.length > 0) {
       console.log("\nRequired base components:");
       component.baseComponents.forEach((baseComponent) => {
