@@ -15,9 +15,9 @@
   ],
   "scripts": {
     "dev": "next dev",
-    "build": "tsup",
+    "build": "next build",
+    "build:lib": "tsup",
     "build:components": "tsup",
-    "build:next": "next build",
     "start": "next start",
     "lint": "next lint",
     "prepublishOnly": "npm run build:components"
