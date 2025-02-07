@@ -95,42 +95,11 @@ export default function DocsLayout({
               </SheetHeader>
               <ScrollArea className="my-4 h-[calc(100vh-8rem)] pb-10">
                 <div className="flex flex-col space-y-6 p-4">
-                  {/* Main Navigation Items */}
-                  <div className="space-y-2">
-                    <h4 className="font-medium text-sm text-muted-foreground">
-                      Navigation
-                    </h4>
-                    <div className="flex items-center gap-4">
-                      {docsConfig.sidebarNav
-                        .flatMap((group) =>
-                          group.items.filter((item) =>
-                            item.href?.startsWith("/")
-                          )
-                        )
-                        .map((item) => (
-                          <Link
-                            key={item.href}
-                            href={item.href || ""}
-                            className={cn(
-                              "text-sm font-medium hover:text-foreground/80",
-                              pathname === item.href
-                                ? "text-foreground"
-                                : "text-foreground/60"
-                            )}
-                          >
-                            {item.title}
-                          </Link>
-                        ))}
-                    </div>
-                  </div>
-
-                  {/* Documentation Sidebar */}
-                  <div className="space-y-4">
-                    <h4 className="font-medium text-sm text-muted-foreground">
-                      Documentation
-                    </h4>
-                    <Sidebar items={docsConfig.sidebarNav} />
-                  </div>
+                  {/* Pass setIsOpen to the Sidebar component */}
+                  <Sidebar
+                    items={docsConfig.sidebarNav}
+                    setIsOpen={setIsOpen}
+                  />
 
                   {/* Footer Links */}
                   <div className="border-t pt-4 space-y-4">

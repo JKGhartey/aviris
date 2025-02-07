@@ -24,6 +24,7 @@ interface SidebarNavProps extends React.HTMLAttributes<HTMLElement> {
       description?: string;
     }[];
   }[];
+  setIsOpen?: (open: boolean) => void;
 }
 
 const icons: Record<string, LucideIcon> = {
@@ -35,7 +36,12 @@ const icons: Record<string, LucideIcon> = {
   Development: Layers,
 };
 
-export function Sidebar({ className, items, ...props }: SidebarNavProps) {
+export function Sidebar({
+  className,
+  items,
+  setIsOpen,
+  ...props
+}: SidebarNavProps) {
   const pathname = usePathname();
 
   return (
@@ -60,6 +66,7 @@ export function Sidebar({ className, items, ...props }: SidebarNavProps) {
                       <Link
                         key={item.href}
                         href={item.href}
+                        onClick={() => setIsOpen?.(false)}
                         className={cn(
                           "group flex w-full items-center rounded-md border border-transparent px-2 py-1.5 hover:bg-muted hover:text-foreground text-sm transition-colors",
                           isItemActive
@@ -83,6 +90,7 @@ export function Sidebar({ className, items, ...props }: SidebarNavProps) {
             <Link
               key={section.href}
               href={section.href}
+              onClick={() => setIsOpen?.(false)}
               className={cn(
                 "group flex w-full items-center gap-2 rounded-md border border-transparent px-2 py-1.5 hover:bg-muted hover:text-foreground text-sm font-medium transition-colors",
                 isActive
