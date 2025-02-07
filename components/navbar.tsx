@@ -5,7 +5,7 @@ import { CustomButton } from "@/components/custom/CustomButton";
 import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
 import { CommandMenu } from "./command-menu";
-import { navItems } from "@/constants/navigation";
+import { docsConfig } from "@/config/docs";
 import { routes } from "@/constants/routes";
 import { ThemeToggle } from "@/components/theme-toggle";
 import {
@@ -15,14 +15,30 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
-const headerNavItems = navItems.flatMap(
-  (group) => group.items.filter((item) => item.href.startsWith("/")) // Only include internal links
+interface NavItem {
+  title: string;
+  href?: string;
+  description?: string;
+  items?: NavItem[];
+}
+
+interface NavGroup {
+  title: string;
+  href?: string;
+  items: NavItem[];
+}
+
+const headerNavItems = docsConfig.sidebarNav.filter((group: NavGroup) =>
+  group.href?.startsWith("/")
 );
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
@@ -51,8 +67,13 @@ export function Navbar() {
             {headerNavItems.map((item) => (
               <Link
                 key={item.href}
-                href={item.href}
-                className="px-4 py-2 text-sm font-medium whitespace-nowrap text-muted-foreground hover:text-foreground rounded-md transition-colors hover:bg-accent"
+                href={item.href || ""}
+                className={cn(
+                  "px-4 py-2 text-sm font-medium whitespace-nowrap text-muted-foreground hover:text-foreground rounded-md transition-colors hover:bg-accent",
+                  pathname === item.href
+                    ? "text-foreground"
+                    : "text-foreground/60"
+                )}
               >
                 {item.title}
               </Link>
@@ -137,9 +158,14 @@ export function Navbar() {
                   {headerNavItems.map((item) => (
                     <Link
                       key={item.href}
-                      href={item.href}
+                      href={item.href || ""}
                       onClick={() => setSheetOpen(false)}
-                      className="px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground rounded-md transition-colors hover:bg-accent"
+                      className={cn(
+                        "px-4 py-3 text-base font-medium text-muted-foreground hover:text-foreground rounded-md transition-colors hover:bg-accent",
+                        pathname === item.href
+                          ? "text-foreground"
+                          : "text-foreground/60"
+                      )}
                     >
                       {item.title}
                     </Link>

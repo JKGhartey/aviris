@@ -1,85 +1,103 @@
+import { routes } from "@/constants/routes";
+
 export const docsConfig = {
   sidebarNav: [
     {
       title: "Getting Started",
-      href: "/docs",
+      href: routes.docs.root,
       items: [
         {
           title: "Introduction",
-          href: "/docs",
+          href: routes.docs.root,
           description: "Learn about Aviris components and get started",
         },
         {
           title: "Installation",
-          href: "/docs/installation",
+          href: routes.docs.installation,
           description: "How to install and set up Aviris components",
         },
         {
           title: "CLI Usage",
-          href: "/docs/cli",
+          href: routes.docs.cli,
           description: "Using the Aviris CLI to add components",
         },
         {
           title: "Theming",
-          href: "/docs/theming",
+          href: routes.docs.theming,
           description: "Customize the look and feel of components",
         },
       ],
     },
     {
       title: "Components",
-      href: "/docs/components",
+      href: routes.docs.components.root,
       items: [
         {
           title: "Button",
-          href: "/docs/components/button",
+          href: routes.docs.components.button,
           description: "Interactive button component with variants",
         },
         {
           title: "Code",
-          href: "/docs/components/code",
+          href: routes.docs.components.code,
           description: "Code blocks with copy functionality and tabs",
+        },
+        {
+          title: "Toolbar",
+          href: routes.docs.components.toolbar,
+          description: "Toolbar component with quick access to tools",
+        },
+        {
+          title: "API Table",
+          href: routes.docs.components.apiTable,
+          description: "API table component with customizable properties",
+        },
+        {
+          title: "Section Header",
+          href: routes.docs.components.sectionHeader,
+          description:
+            "Flexible header component for sections with title and actions",
         },
       ],
     },
     {
       title: "Customization",
-      href: "/docs/customization",
+      href: routes.docs.customization.root,
       items: [
         {
           title: "Styling",
-          href: "/docs/customization/styling",
+          href: routes.docs.customization.styling,
           description: "Style your components with Tailwind CSS",
         },
         {
           title: "Variants",
-          href: "/docs/customization/variants",
+          href: routes.docs.customization.variants,
           description: "Create custom variants for components",
         },
         {
           title: "Animation",
-          href: "/docs/customization/animation",
+          href: routes.docs.customization.animation,
           description: "Add animations to your components",
         },
       ],
     },
     {
       title: "API",
-      href: "/docs/api",
+      href: routes.docs.api.root,
       items: [
         {
           title: "Component API",
-          href: "/docs/api/components",
+          href: routes.docs.api.components,
           description: "Component props and configuration",
         },
         {
           title: "CLI Reference",
-          href: "/docs/api/cli",
+          href: routes.docs.api.cli,
           description: "CLI commands and options",
         },
         {
           title: "Hooks",
-          href: "/docs/api/hooks",
+          href: routes.docs.api.hooks,
           description: "Custom hooks and utilities",
         },
       ],

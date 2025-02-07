@@ -14,10 +14,24 @@ import {
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { TableOfContents } from "@/components/table-of-contents";
-import { navItems } from "@/constants/navigation";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { routes } from "@/constants/routes";
+import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
+
+interface NavItem {
+  title: string;
+  href?: string;
+  description?: string;
+  items?: NavItem[];
+}
+
+interface NavGroup {
+  title: string;
+  href?: string;
+  items: NavItem[];
+}
 
 interface TableOfContents {
   items?: {
@@ -33,6 +47,7 @@ export default function DocsLayout({
 }) {
   const [toc, setToc] = React.useState<TableOfContents>({ items: [] });
   const [isOpen, setIsOpen] = React.useState(false);
+  const pathname = usePathname();
 
   // Update table of contents when content changes
   React.useEffect(() => {
@@ -85,19 +100,23 @@ export default function DocsLayout({
                     <h4 className="font-medium text-sm text-muted-foreground">
                       Navigation
                     </h4>
-                    <div className="grid grid-flow-row auto-rows-max space-y-1">
-                      {navItems
+                    <div className="flex items-center gap-4">
+                      {docsConfig.sidebarNav
                         .flatMap((group) =>
                           group.items.filter((item) =>
-                            item.href.startsWith("/")
+                            item.href?.startsWith("/")
                           )
                         )
                         .map((item) => (
                           <Link
                             key={item.href}
-                            href={item.href}
-                            onClick={() => setIsOpen(false)}
-                            className="text-sm font-medium text-muted-foreground hover:text-foreground py-1"
+                            href={item.href || ""}
+                            className={cn(
+                              "text-sm font-medium hover:text-foreground/80",
+                              pathname === item.href
+                                ? "text-foreground"
+                                : "text-foreground/60"
+                            )}
                           >
                             {item.title}
                           </Link>

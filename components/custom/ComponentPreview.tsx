@@ -3,7 +3,7 @@
 import * as React from "react";
 import { CodeBlock } from "./CodeBlock";
 import { cn } from "@/lib/utils";
-import { Eye, Code as CodeIcon } from "lucide-react";
+import { Eye, Code as CodeIcon, RotateCw } from "lucide-react";
 
 interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -11,7 +11,7 @@ interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
    */
   children: React.ReactNode;
   /**
-   * The source code to be displayed
+   * The code to be displayed in the code block
    */
   code: string;
   /**
@@ -22,6 +22,10 @@ interface ComponentPreviewProps extends React.HTMLAttributes<HTMLDivElement> {
    * The language of the code block
    */
   language?: string;
+  /**
+   * Whether the component has animations that can be replayed
+   */
+  hasAnimation?: boolean;
 }
 
 export function ComponentPreview({
@@ -29,10 +33,16 @@ export function ComponentPreview({
   code,
   showLineNumbers = true,
   language = "tsx",
+  hasAnimation = false,
   className,
   ...props
 }: ComponentPreviewProps) {
   const [isCode, setIsCode] = React.useState(false);
+  const [key, setKey] = React.useState(0);
+
+  const handleReplay = () => {
+    setKey((prev) => prev + 1);
+  };
 
   return (
     <div
@@ -62,6 +72,15 @@ export function ComponentPreview({
             Code
           </button>
         </div>
+        {hasAnimation && !isCode && (
+          <button
+            onClick={handleReplay}
+            className="inline-flex h-8 w-8 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-muted/50 hover:text-foreground"
+          >
+            <RotateCw className="size-4" />
+            <span className="sr-only">Replay animation</span>
+          </button>
+        )}
       </div>
       <div className="relative">
         <div
@@ -73,7 +92,10 @@ export function ComponentPreview({
           )}
         >
           <div className="flex h-full items-center justify-center p-10">
-            {children}
+            {React.cloneElement(children as React.ReactElement, {
+              key,
+              replay: key > 0,
+            })}
           </div>
         </div>
         <div
