@@ -21,22 +21,17 @@ export const docsConfig = {
           href: routes.docs.cli,
           description: "Using the Aviris CLI to add components",
         },
-        {
-          title: "Theming",
-          href: routes.docs.theming,
-          description: "Customize the look and feel of components",
-        },
+        // {
+        //   title: "Theming",
+        //   href: routes.docs.theming,
+        //   description: "Customize the look and feel of components",
+        // },
       ],
     },
     {
       title: "Components",
       href: routes.docs.components.root,
       items: [
-        {
-          title: "Button",
-          href: routes.docs.components.button,
-          description: "Interactive button component with variants",
-        },
         {
           title: "Code",
           href: routes.docs.components.code,
@@ -58,8 +53,28 @@ export const docsConfig = {
           description:
             "Flexible header component for sections with title and actions",
         },
+        {
+          title: "Folder Structure",
+          href: routes.docs.components.folderStructure,
+          description:
+            "Tree-like component for displaying file and directory structures",
+        },
       ],
     },
+
+    {
+      title: "Templates",
+      href: routes.docs.templates.root,
+      items: [
+        {
+          title: "Landing Page",
+          href: routes.docs.templates.landingPage,
+          description:
+            "A modern landing page template with hero section and features",
+        },
+      ],
+    },
+
     {
       title: "Customization",
       href: routes.docs.customization.root,

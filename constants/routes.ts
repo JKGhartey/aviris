@@ -7,11 +7,15 @@ export const routes = {
     theming: "/docs/theming",
     components: {
       root: "/docs/components",
-      button: "/docs/components/button",
       code: "/docs/components/code",
       toolbar: "/docs/components/toolbar",
       apiTable: "/docs/components/api-table",
       sectionHeader: "/docs/components/section-header",
+      folderStructure: "/docs/components/folder-structure",
+    },
+    templates: {
+      root: "/docs/templates",
+      landingPage: "/docs/templates/landing-page",
     },
     customization: {
       root: "/docs/customization",

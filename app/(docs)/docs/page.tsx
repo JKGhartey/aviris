@@ -1,6 +1,15 @@
 import Link from "next/link";
 import { CustomButton } from "@/components/custom/CustomButton";
 
+const features = [
+  "Built on top of shadcn/ui components",
+  "Additional features and customizations",
+  "Easy installation through CLI",
+  "TypeScript support",
+  "Tailwind CSS styling",
+  "Fully customizable",
+];
+
 export default function DocsPage() {
   return (
     <div className="space-y-6">
@@ -36,12 +45,9 @@ export default function DocsPage() {
           Features
         </h2>
         <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
-          <li>Built on top of shadcn/ui components</li>
-          <li>Additional features and customizations</li>
-          <li>Easy installation through CLI</li>
-          <li>TypeScript support</li>
-          <li>Tailwind CSS styling</li>
-          <li>Fully customizable</li>
+          {features.map((feature) => (
+            <li key={feature}>{feature}</li>
+          ))}
         </ul>
       </div>
 
