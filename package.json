@@ -19,7 +19,7 @@
   },
   "tsup": {
     "entry": [
-      "components/custom/index.ts"
+      "index.ts"
     ],
     "format": [
       "esm",
@@ -30,14 +30,13 @@
     "clean": true,
     "external": [
       "react",
-      "react-dom"
+      "react-dom",
+      "next",
+      "@radix-ui/*"
     ],
-    "target": "node16",
-    "platform": "node",
-    "noExternal": [
-      "aviris-components"
-    ],
-    "tsconfig": "tsconfig.build.json"
+    "target": "es2019",
+    "outDir": "dist",
+    "treeshake": true
   },
   "peerDependencies": {
     "next": "^14.0.0",
@@ -46,7 +45,9 @@
     "tailwindcss": "^3.4.0"
   },
   "dependencies": {
+    "@radix-ui/react-avatar": "^1.1.3",
     "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-label": "^2.1.2",
     "@radix-ui/react-scroll-area": "^1.0.5",
     "@radix-ui/react-select": "^2.1.6",
     "@radix-ui/react-separator": "^1.0.3",
@@ -60,6 +61,7 @@
     "lucide-react": "^0.474.0",
     "next-themes": "^0.4.4",
     "react-icons": "^5.4.0",
+    "sonner": "^1.7.4",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7"
   },

@@ -11,6 +11,7 @@ import {
   CommandSeparator,
 } from "@/components/ui/command";
 import { navItems } from "@/constants/navigation";
+import { docsConfig } from "@/config/docs";
 
 interface CommandMenuProps {
   open: boolean;
@@ -19,6 +20,11 @@ interface CommandMenuProps {
 
 export function CommandMenu({ open, onOpenChange }: CommandMenuProps) {
   const router = useRouter();
+
+  // Get components from docsConfig
+  const components =
+    docsConfig.sidebarNav.find((section) => section.title === "Components")
+      ?.items || [];
 
   return (
     <CommandDialog open={open} onOpenChange={onOpenChange}>
@@ -45,6 +51,25 @@ export function CommandMenu({ open, onOpenChange }: CommandMenuProps) {
             ))}
           </CommandGroup>
         ))}
+        <CommandSeparator />
+        <CommandGroup heading="Components">
+          {components.map((component) => (
+            <CommandItem
+              key={component.href}
+              onSelect={() => {
+                router.push(component.href);
+                onOpenChange(false);
+              }}
+            >
+              <div>
+                <div className="text-sm font-medium">{component.title}</div>
+                <div className="text-xs text-muted-foreground">
+                  {component.description}
+                </div>
+              </div>
+            </CommandItem>
+          ))}
+        </CommandGroup>
         <CommandSeparator />
         <CommandGroup heading="Links">
           <CommandItem

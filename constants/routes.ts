@@ -13,6 +13,10 @@ export const routes = {
       sectionHeader: "/docs/components/section-header",
       folderStructure: "/docs/components/folder-structure",
     },
+    widgets: {
+      root: "/docs/widgets",
+      jobApplication: "/docs/widgets/job-application",
+    },
     templates: {
       root: "/docs/templates",
       landingPage: "/docs/templates/landing-page",

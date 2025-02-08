@@ -117,5 +117,16 @@ export const docsConfig = {
         },
       ],
     },
+    {
+      title: "Widgets",
+      items: [
+        {
+          title: "Job Application",
+          href: routes.docs.widgets.jobApplication,
+          description:
+            "A customizable job application form widget for collecting candidate information.",
+        },
+      ],
+    },
   ],
 };
