@@ -1,7 +1,8 @@
 import { JobApplication } from "@/components/widgets";
+import type { JobApplicationData } from "@/components/widgets";
 
 export default function JobApplicationDemo() {
-  const handleSubmit = (data: any) => {
+  const handleSubmit = async (data: JobApplicationData) => {
     console.log("Form submitted:", data);
   };
 
@@ -9,7 +10,7 @@ export default function JobApplicationDemo() {
 }
 
 export function JobApplicationCustomization() {
-  const handleSubmit = (data: any) => {
+  const handleSubmit = async (data: JobApplicationData) => {
     console.log("Form submitted:", data);
   };
 
@@ -23,7 +24,7 @@ export function JobApplicationCustomization() {
 }
 
 export function JobApplicationLoading() {
-  const handleSubmit = (data: any) => {
+  const handleSubmit = async (data: JobApplicationData) => {
     console.log("Form submitted:", data);
   };
 
