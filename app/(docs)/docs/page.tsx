@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { CustomButton } from "@/components/custom/CustomButton";
+import { routes } from "@/constants/routes";
+import { CodeBlock } from "@/components/custom/CodeBlock";
 
 const features = [
   "Built on top of shadcn/ui components",
@@ -9,6 +10,20 @@ const features = [
   "Tailwind CSS styling",
   "Fully customizable",
 ];
+
+const installCommand = {
+  npm: "npm install -g aviris-cli",
+  pnpm: "pnpm add -g aviris-cli",
+  yarn: "yarn global add aviris-cli",
+  bun: "bun add -g aviris-cli",
+};
+
+const addComponentCommand = {
+  npm: "npx aviris add custom-button",
+  pnpm: "pnpm dlx aviris add custom-button",
+  yarn: "yarn dlx aviris add custom-button",
+  bun: "bunx aviris add custom-button",
+};
 
 export default function DocsPage() {
   return (
@@ -25,23 +40,17 @@ export default function DocsPage() {
       </div>
 
       <div className="space-y-4">
-        <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight">
+        <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight">
           Quick Start
         </h2>
-        <p className="leading-7">
-          Install Aviris components using your preferred package manager:
-        </p>
-        <div className="rounded-md bg-muted px-4 py-3 font-mono text-sm">
-          npm install aviris-components
-        </div>
-        <p className="leading-7">Install the CLI globally:</p>
-        <div className="rounded-md bg-muted px-4 py-3 font-mono text-sm">
-          npm install -g aviris-components
-        </div>
+        <p className="leading-7">Install the Aviris CLI globally:</p>
+        <CodeBlock code={installCommand} hasTabs language="bash" />
+        <p className="leading-7">Add components to your project:</p>
+        <CodeBlock code={addComponentCommand} hasTabs language="bash" />
       </div>
 
       <div className="space-y-4">
-        <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight">
+        <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight">
           Features
         </h2>
         <ul className="my-6 ml-6 list-disc [&>li]:mt-2">
@@ -51,13 +60,13 @@ export default function DocsPage() {
         </ul>
       </div>
 
-      <div className="space-y-4">
-        <h2 className="scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight">
+      <div>
+        <h2 className="scroll-m-20 pb-2 text-3xl font-semibold tracking-tight">
           Next Steps
         </h2>
         <div className="grid gap-4 md:grid-cols-2">
           <Link
-            href="/docs/installation"
+            href={routes.docs.installation}
             className="group relative rounded-lg border p-6 hover:border-foreground"
           >
             <h3 className="font-semibold">Installation →</h3>
@@ -66,7 +75,7 @@ export default function DocsPage() {
             </p>
           </Link>
           <Link
-            href="/docs/components/button"
+            href={routes.docs.components.root}
             className="group relative rounded-lg border p-6 hover:border-foreground"
           >
             <h3 className="font-semibold">Components →</h3>
@@ -75,15 +84,6 @@ export default function DocsPage() {
             </p>
           </Link>
         </div>
-      </div>
-
-      <div className="flex gap-4">
-        <Link href="/docs/installation">
-          <CustomButton>Get Started</CustomButton>
-        </Link>
-        <Link href="https://github.com/yourusername/aviris" target="_blank">
-          <CustomButton variant="outline">GitHub</CustomButton>
-        </Link>
       </div>
     </div>
   );
