@@ -18,12 +18,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aviris.vercel.app"),
   title: {
     default: "Aviris - Modern React UI Component Library",
     template: "%s | Aviris UI",
   },
   description:
-    "A collection of beautiful, accessible, and customizable React components built with Tailwind CSS and shadcn/ui. Perfect for modern Next.js applications.",
+    "Build modern web applications faster with Aviris - a collection of beautiful, accessible React components. Features dark mode, TypeScript support, and seamless integration with Tailwind CSS.",
   keywords: [
     // Core technology keywords
     "react components",
@@ -86,9 +87,11 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    nocache: true,
     googleBot: {
       index: true,
       follow: true,
+      noimageindex: false,
       "max-video-preview": -1,
       "max-image-preview": "large",
       "max-snippet": -1,
@@ -120,20 +123,29 @@ export const metadata: Metadata = {
     ],
   },
   manifest: "/site.webmanifest",
+  alternates: {
+    canonical: "https://aviris.vercel.app",
+    languages: {
+      "en-US": "https://aviris.vercel.app",
+    },
+    types: {
+      "application/rss+xml": "https://aviris.vercel.app/feed.xml",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://aviris.vercel.app",
     title: "Aviris - Modern React UI Component Library",
     description:
-      "A collection of beautiful, accessible, and customizable React components built with Tailwind CSS and shadcn/ui. Perfect for modern Next.js applications.",
+      "Build modern web applications faster with Aviris - a collection of beautiful, accessible React components. Features dark mode, TypeScript support, and seamless integration with Tailwind CSS.",
     siteName: "Aviris",
     images: [
       {
         url: "/aviris-og.png",
         width: 1200,
         height: 630,
-        alt: "Aviris - Beautiful React Components & UI Library",
+        alt: "Aviris - Modern React UI Component Library",
       },
     ],
   },
@@ -141,22 +153,21 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aviris - Modern React UI Component Library",
     description:
-      "A collection of beautiful, accessible, and customizable React components built with Tailwind CSS and shadcn/ui. Perfect for modern Next.js applications.",
+      "Build modern web applications faster with Aviris - a collection of beautiful, accessible React components. Features dark mode, TypeScript support, and seamless integration with Tailwind CSS.",
     creator: "@avirisdev",
     images: ["/aviris-og.png"],
+    site: "@avirisdev",
   },
   verification: {
     google: "your-google-site-verification",
     yandex: "your-yandex-verification",
-  },
-  alternates: {
-    canonical: "https://aviris.vercel.app",
-    languages: {
-      "en-US": "https://aviris.vercel.app",
+    other: {
+      me: ["@avirisdev"],
     },
   },
-  metadataBase: new URL("https://aviris.vercel.app"),
   category: "Technology",
+  classification: "Web Development/UI Components",
+  referrer: "origin-when-cross-origin",
 };
 
 export default function RootLayout({
