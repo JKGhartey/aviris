@@ -19,8 +19,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: "Aviris - Beautiful React Components",
-    template: "%s - Aviris",
+    default:
+      "Aviris - Beautiful React Components & UI Library for Modern Web Applications",
+    template: "%s | Aviris - React Component Library",
   },
   description:
     "A collection of beautiful, accessible, and customizable React components built with Tailwind CSS and shadcn/ui. Perfect for modern Next.js applications.",
@@ -78,7 +79,7 @@ export const metadata: Metadata = {
   authors: [
     {
       name: "Aviris Team",
-      url: "https://aviris.dev",
+      url: "https://aviris.vercel.app",
     },
   ],
   creator: "Aviris Team",
@@ -123,8 +124,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://aviris.dev",
-    title: "Aviris - Beautiful React Components",
+    url: "https://aviris.vercel.app",
+    title:
+      "Aviris - Beautiful React Components & UI Library for Modern Web Applications",
     description:
       "A collection of beautiful, accessible, and customizable React components built with Tailwind CSS and shadcn/ui. Perfect for modern Next.js applications.",
     siteName: "Aviris",
@@ -133,13 +135,14 @@ export const metadata: Metadata = {
         url: "/aviris-og.png",
         width: 1200,
         height: 630,
-        alt: "Aviris - Beautiful React Components",
+        alt: "Aviris - Beautiful React Components & UI Library",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aviris - Beautiful React Components",
+    title:
+      "Aviris - Beautiful React Components & UI Library for Modern Web Applications",
     description:
       "A collection of beautiful, accessible, and customizable React components built with Tailwind CSS and shadcn/ui. Perfect for modern Next.js applications.",
     creator: "@avirisdev",
@@ -150,9 +153,9 @@ export const metadata: Metadata = {
     yandex: "your-yandex-verification",
   },
   alternates: {
-    canonical: "https://aviris.dev",
+    canonical: "https://aviris.vercel.app",
     languages: {
-      "en-US": "https://aviris.dev",
+      "en-US": "https://aviris.vercel.app",
     },
   },
   category: "Technology",
