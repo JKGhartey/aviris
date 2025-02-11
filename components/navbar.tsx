@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { CustomButton } from "@/components/custom/CustomButton";
-import { Input } from "@/components/ui/input";
 import { useState, useEffect } from "react";
 import { CommandMenu } from "./command-menu";
 import { docsConfig } from "@/config/docs";
@@ -17,6 +16,7 @@ import {
 } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { Logo } from "./Logo";
 
 interface NavItem {
   title: string;
@@ -59,9 +59,12 @@ export function Navbar() {
         <div className="flex items-center gap-6 overflow-hidden">
           <Link
             href="/"
-            className="flex items-center space-x-2 font-bold text-lg shrink-0 bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70 hover:from-primary hover:to-primary/70 transition-all"
+            className="flex items-center space-x-2 font-bold text-lg shrink-0"
           >
-            aviris
+            <Logo variant="standalone" />
+            <span className="text-lg font-bold bg-clip-text text-transparent bg-gradient-to-r from-foreground to-foreground/70">
+              Aviris
+            </span>
           </Link>
           <div className="hidden lg:flex items-center gap-1 overflow-x-auto">
             {headerNavItems.map((item) => (
