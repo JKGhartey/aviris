@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import { ASSETS } from "@/public/assets";
 
 type LogoProps = {
@@ -8,10 +9,32 @@ type LogoProps = {
 };
 
 export function Logo({ className = "", variant = "default" }: LogoProps) {
-  const { resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const { theme, systemTheme } = useTheme();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Handle system theme preference
+  const currentTheme = theme === "system" ? systemTheme : theme;
+
+  // Show a default logo during SSR to prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <Image
+        src={ASSETS.logos.dark}
+        alt="Aviris Logo"
+        width={50}
+        height={50}
+        className={className}
+        priority
+      />
+    );
+  }
 
   const logoSrc =
-    resolvedTheme === "dark"
+    currentTheme === "dark"
       ? variant === "standalone"
         ? ASSETS.logos.aloneLight
         : ASSETS.logos.light
