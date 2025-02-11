@@ -1,7 +1,7 @@
 {
-  "name": "Aviris",
+  "name": "Aviris - Beautiful React Components",
   "short_name": "Aviris",
-  "description": "Open source documentation and knowledge base platform",
+  "description": "A collection of beautiful, accessible, and customizable React components built with Tailwind CSS and shadcn/ui.",
   "icons": [
     {
       "src": "/favicon/android-chrome-192x192.png",

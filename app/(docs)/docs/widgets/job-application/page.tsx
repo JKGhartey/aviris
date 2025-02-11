@@ -4,6 +4,13 @@ import { JobApplication } from "@/components/widgets/JobApplication";
 import { InstallationSection } from "@/components/custom/InstallationSection";
 import { Button } from "@/components/ui/button";
 import { FaGithub } from "react-icons/fa";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Job Application Widget",
+  description:
+    "A customizable job application form widget for collecting candidate information.",
+};
 
 export default function JobApplicationPage() {
   return (

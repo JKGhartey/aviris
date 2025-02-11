@@ -1,5 +1,11 @@
-import { routes } from "@/constants/routes";
 import { CodeBlock } from "@/components/custom/CodeBlock";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Installation",
+  description:
+    "Follow these steps to install and set up Aviris in your project.",
+};
 
 const installCommand = {
   npm: "npm install -g aviris-cli",

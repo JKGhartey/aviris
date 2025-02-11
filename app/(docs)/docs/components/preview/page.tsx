@@ -1,5 +1,12 @@
 import { ComponentPreview } from "@/components/custom/ComponentPreview";
 import { Button } from "@/components/ui/button";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Toolbar",
+  description:
+    "A component that displays both the rendered component and its source code.",
+};
 
 export default function PreviewPage() {
   return (

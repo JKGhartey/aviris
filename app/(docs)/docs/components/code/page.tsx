@@ -1,6 +1,12 @@
 import { CodeBlock } from "@/components/custom/CodeBlock";
 import { ComponentPreview } from "@/components/custom/ComponentPreview";
 import { InstallationSection } from "@/components/custom/InstallationSection";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Code",
+  description: "A code component with copy functionality and optional tabs.",
+};
 
 const singleExample = `npm install aviris-components
 # or
