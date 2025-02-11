@@ -19,9 +19,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default:
-      "Aviris - Beautiful React Components & UI Library for Modern Web Applications",
-    template: "%s | Aviris - React Component Library",
+    default: "Aviris - Modern React UI Component Library",
+    template: "%s | Aviris UI",
   },
   description:
     "A collection of beautiful, accessible, and customizable React components built with Tailwind CSS and shadcn/ui. Perfect for modern Next.js applications.",
@@ -125,8 +124,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://aviris.vercel.app",
-    title:
-      "Aviris - Beautiful React Components & UI Library for Modern Web Applications",
+    title: "Aviris - Modern React UI Component Library",
     description:
       "A collection of beautiful, accessible, and customizable React components built with Tailwind CSS and shadcn/ui. Perfect for modern Next.js applications.",
     siteName: "Aviris",
@@ -141,8 +139,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      "Aviris - Beautiful React Components & UI Library for Modern Web Applications",
+    title: "Aviris - Modern React UI Component Library",
     description:
       "A collection of beautiful, accessible, and customizable React components built with Tailwind CSS and shadcn/ui. Perfect for modern Next.js applications.",
     creator: "@avirisdev",
@@ -158,6 +155,7 @@ export const metadata: Metadata = {
       "en-US": "https://aviris.vercel.app",
     },
   },
+  metadataBase: new URL("https://aviris.vercel.app"),
   category: "Technology",
 };
 
