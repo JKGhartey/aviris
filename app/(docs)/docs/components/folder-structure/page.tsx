@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import { FolderStructure } from "@/components/custom/FolderStructure";
 import { ComponentPreview } from "@/components/custom/ComponentPreview";
 import { CodeBlock } from "@/components/custom/CodeBlock";
