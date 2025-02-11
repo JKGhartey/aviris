@@ -1,5 +1,3 @@
-"use client";
-
 import { JobApplication } from "@/components/widgets/JobApplication";
 import { InstallationSection } from "@/components/custom/InstallationSection";
 import { Button } from "@/components/ui/button";

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/navbar";
@@ -10,6 +10,12 @@ const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
 
 export const metadata: Metadata = {
   title: {
@@ -138,11 +144,6 @@ export const metadata: Metadata = {
       "A collection of beautiful, accessible, and customizable React components built with Tailwind CSS and shadcn/ui. Perfect for modern Next.js applications.",
     creator: "@avirisdev",
     images: ["/aviris-og.png"],
-  },
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
   },
   verification: {
     google: "your-google-site-verification",
