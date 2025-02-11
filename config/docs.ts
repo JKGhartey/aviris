@@ -119,6 +119,7 @@ export const docsConfig = {
     },
     {
       title: "Widgets",
+      href: routes.docs.widgets.root,
       items: [
         {
           title: "Job Application",

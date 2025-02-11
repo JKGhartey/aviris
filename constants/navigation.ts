@@ -6,12 +6,12 @@ export const navItems = [
     items: [
       {
         title: "Docs",
-        href: routes.docs.index,
+        href: routes.docs.root,
         description: "Documentation home",
       },
       {
         title: "Components",
-        href: routes.docs.components,
+        href: routes.docs.components.root,
         description: "Browse components",
       },
       {
