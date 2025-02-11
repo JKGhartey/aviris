@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     template: "%s | Aviris UI",
   },
   description:
-    "Build modern web applications faster with Aviris - a collection of beautiful, accessible React components. Features dark mode, TypeScript support, and seamless integration with Tailwind CSS.",
+    "Beautiful, accessible React components built with Tailwind CSS. Create modern web apps with dark mode, TypeScript support, and seamless customization.",
   keywords: [
     // Core technology keywords
     "react components",
@@ -138,7 +138,7 @@ export const metadata: Metadata = {
     url: "https://aviris.vercel.app",
     title: "Aviris - Modern React UI Component Library",
     description:
-      "Build modern web applications faster with Aviris - a collection of beautiful, accessible React components. Features dark mode, TypeScript support, and seamless integration with Tailwind CSS.",
+      "Beautiful, accessible React components built with Tailwind CSS. Create modern web apps with dark mode, TypeScript support, and seamless customization.",
     siteName: "Aviris",
     images: [
       {
@@ -153,7 +153,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Aviris - Modern React UI Component Library",
     description:
-      "Build modern web applications faster with Aviris - a collection of beautiful, accessible React components. Features dark mode, TypeScript support, and seamless integration with Tailwind CSS.",
+      "Beautiful, accessible React components built with Tailwind CSS. Create modern web apps with dark mode, TypeScript support, and seamless customization.",
     creator: "@avirisdev",
     images: ["/aviris-og.png"],
     site: "@avirisdev",

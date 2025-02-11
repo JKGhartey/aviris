@@ -21,6 +21,13 @@ interface CommandMenuProps {
 export function CommandMenu({ open, onOpenChange }: CommandMenuProps) {
   const router = useRouter();
 
+  const handleNavigation = (href: string | undefined) => {
+    if (typeof href === "string" && href) {
+      router.push(href);
+      onOpenChange(false);
+    }
+  };
+
   // Get components from docsConfig
   const components =
     docsConfig.sidebarNav.find((section) => section.title === "Components")
@@ -34,13 +41,7 @@ export function CommandMenu({ open, onOpenChange }: CommandMenuProps) {
         {navItems.map(({ heading, items }) => (
           <CommandGroup key={heading} heading={heading}>
             {items.map(({ title, href, description }) => (
-              <CommandItem
-                key={href}
-                onSelect={() => {
-                  router.push(href);
-                  onOpenChange(false);
-                }}
-              >
+              <CommandItem key={href} onSelect={() => handleNavigation(href)}>
                 <div>
                   <div className="text-sm font-medium">{title}</div>
                   <div className="text-xs text-muted-foreground">
@@ -56,10 +57,7 @@ export function CommandMenu({ open, onOpenChange }: CommandMenuProps) {
           {components.map((component) => (
             <CommandItem
               key={component.href}
-              onSelect={() => {
-                router.push(component.href);
-                onOpenChange(false);
-              }}
+              onSelect={() => handleNavigation(component.href)}
             >
               <div>
                 <div className="text-sm font-medium">{component.title}</div>
